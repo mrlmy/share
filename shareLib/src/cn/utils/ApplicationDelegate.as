@@ -59,19 +59,27 @@ package cn.utils
 				channelSet.addChannel(channel);
 				
 				/**服务类名称*/
-				remoteObject.destination=beanName;
+				remoteObject.destination="fluorine";
 				remoteObject.channelSet=channelSet;
-				
+				remoteObject.source=beanName;
 				
 				/**服务方法*/
 				var op:AbstractOperation=remoteObject.getOperation(method);
 				var token:AsyncToken=null;
 				
 				/**服务方法参数*/
-				
-				op.arguments = args;
-				token=op.send();
-				
+				if (args && args.hasOwnProperty("parameter") && (args["parameter"] != null))
+				{
+					if ((args["parameter"] as Array) == null)
+					{
+						args["parameter"]=[args["parameter"]]; //单一参数封装为Array
+					}
+					token=op.send.apply(null, args["parameter"] as Array);
+				}
+				else
+				{
+					token=op.send();
+				}
 				
 				/**区分Proxy中回调函数的标识*/
 				token.messageName=messageName;
