@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:VGroup xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		  xmlns:s="library://ns.adobe.com/flex/spark" 
+		  xmlns:mx="library://ns.adobe.com/flex/mx" width="100%" height="100%" xmlns:local="*" xmlns:test="test.*">
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+		<test:TestHelper id="testHelper"/>
+	</fx:Declarations>
+	
+	<s:HGroup>
+		<s:TextInput id="text1"/>
+		<s:Button label="Click" click="testHelper.btn_clickHandler()"/>
+	</s:HGroup>
+	<s:DataGrid id="dg" width="100%" height="100%">
+		<s:columns>
+			<s:ArrayList>
+				<s:GridColumn dataField="code" headerText="编号"/>
+				<s:GridColumn dataField="name" headerText="名字"/>
+				<s:GridColumn dataField="tel" headerText="电话"/>
+			</s:ArrayList>
+		</s:columns>
+	</s:DataGrid>
+</s:VGroup>
