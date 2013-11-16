@@ -14,9 +14,11 @@
 	<s:DataGrid id="dg" width="100%" height="100%">
 		<s:columns>
 			<s:ArrayList>
-				<s:GridColumn dataField="code" headerText="编号"/>
-				<s:GridColumn dataField="name" headerText="名字"/>
-				<s:GridColumn dataField="tel" headerText="电话"/>
+				<s:GridColumn dataField="姓名" headerText="姓名"/>
+				<s:GridColumn dataField="年龄" headerText="年龄"/>
+				<s:GridColumn dataField="性别" headerText="性别"/>
+				<s:GridColumn dataField="职位" headerText="职位"/>
+				<s:GridColumn dataField="入职日期" headerText="入职日期"/>
 			</s:ArrayList>
 		</s:columns>
 	</s:DataGrid>

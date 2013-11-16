@@ -13,16 +13,13 @@ package test
 			super();
 		}
 		
-		public var vw:Test = view as Test;
-
 		public function result(data:Object):void
 		{
 			var rsMsgName:String=data.token.messageName;
 			switch (rsMsgName)
 			{
 				case "flushData":
-					vw.dg.dataProvider = data.list;
-					Alert.show(view.text1.text);
+					view.dg.dataProvider = data.result;
 					break;
 				default:
 					break;
@@ -34,9 +31,8 @@ package test
 		}
 		
 		public function btn_clickHandler():void {
-			Alert.show(view.text1.text);
-			/*var dele:ApplicationDelegate = new ApplicationDelegate(this,'localhost');
-			dele.getRemoteService('','',[],'flushData');*/
+			var dele:ApplicationDelegate = new ApplicationDelegate(this,'http://192.168.1.2/Gateway.aspx');
+			dele.getRemoteService('Bestecch.ServiceLib.FM.FMCollection.TestService','GetTestData',null,'flushData');
 		}
 	}
 }
